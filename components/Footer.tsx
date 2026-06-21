@@ -1,0 +1,179 @@
+'use client';
+
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'motion/react';
+import Link from 'next/link';
+import { useLanguage } from './LanguageProvider';
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight, ArrowLeft } from 'lucide-react';
+
+export function Footer() {
+  const { t, dir, lang } = useLanguage();
+  const containerRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"]
+  });
+
+  const yOrb1 = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+  const yOrb2 = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+
+  const staggerVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1] as const
+      }
+    })
+  };
+
+  return (
+    <footer ref={containerRef} className="bg-[#003366] text-slate-300 pt-20 pb-10 relative overflow-hidden" dir={dir}>
+      {/* Premium Background Effects */}
+      <div className="absolute inset-0 bg-grid-pattern-dark opacity-10" />
+      <motion.div 
+        style={{ y: yOrb1 }}
+        className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#00509E] rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" 
+      />
+      <motion.div 
+        style={{ y: yOrb2 }}
+        className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#5CE1E6]/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3 pointer-events-none" 
+      />
+      <div className="absolute top-1/2 left-1/2 w-[1000px] h-[1000px] bg-[#00509E] opacity-5 transform rotate-45 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+          {/* Brand - Span 4 cols */}
+          <motion.div 
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerVariants}
+            className="lg:col-span-4 space-y-8"
+          >
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-white to-slate-200 rounded-xl flex items-center justify-center text-[#00509E] font-bold text-2xl shadow-lg group-hover:scale-105 transition-transform">
+                {lang === 'ar' ? 'ي' : 'Y'}
+              </div>
+              <span className="font-bold text-2xl text-white tracking-tight">{lang === 'ar' ? 'الياسمين' : 'Al Yasmin'}</span>
+            </Link>
+            <p className="text-sm leading-relaxed max-w-sm text-slate-300">
+              {t('footer.desc')}
+            </p>
+            <div className="flex gap-4">
+              <a href="https://twitter.com/Alyasmin92" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#5CE1E6] hover:border-[#5CE1E6] hover:text-[#003366] transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                <Twitter className="w-4 h-4" />
+              </a>
+              <a href="https://instagram.com/Alyasmin922" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#5CE1E6] hover:border-[#5CE1E6] hover:text-[#003366] transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                <Instagram className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Quick Links - Span 2 cols */}
+          <motion.div 
+            custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerVariants}
+            className="lg:col-span-2"
+          >
+            <h3 className="text-white font-semibold text-lg mb-6 tracking-wide">{t('footer.links')}</h3>
+            <ul className="space-y-4">
+              {['home', 'about', 'services', 'certifications', 'clients', 'contact'].map((item) => (
+                <li key={item}>
+                  <Link href={item === 'home' ? '/' : `/${item}`} className="group flex items-center text-sm text-slate-300 hover:text-white transition-colors">
+                    <span className={`w-0 h-px bg-[#5CE1E6] transition-all duration-300 group-hover:w-4 ${dir === 'rtl' ? 'ml-0 group-hover:ml-2' : 'mr-0 group-hover:mr-2'}`}></span>
+                    {t(`nav.${item}` as any)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Services - Span 3 cols */}
+          <motion.div 
+            custom={2}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerVariants}
+            className="lg:col-span-3"
+          >
+            <h3 className="text-white font-semibold text-lg mb-6 tracking-wide">{t('nav.services')}</h3>
+            <ul className="space-y-4">
+              {['maintenance', 'cleaning', 'hospitality', 'pest', 'landscaping'].map((item) => (
+                <li key={item}>
+                  <Link href={`/services/${item}`} className="group flex items-center text-sm text-slate-300 hover:text-white transition-colors">
+                    <span className={`w-0 h-px bg-[#5CE1E6] transition-all duration-300 group-hover:w-4 ${dir === 'rtl' ? 'ml-0 group-hover:ml-2' : 'mr-0 group-hover:mr-2'}`}></span>
+                    {t(`service.${item}.title` as any)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contact - Span 3 cols */}
+          <motion.div 
+            custom={3}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerVariants}
+            className="lg:col-span-3"
+          >
+            <h3 className="text-white font-semibold text-lg mb-6 tracking-wide">{t('footer.contact')}</h3>
+            <ul className="space-y-5">
+              <li className="flex items-start gap-4 text-sm text-slate-300 group">
+                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#5CE1E6]/20 group-hover:border-[#5CE1E6]/30 transition-colors">
+                  <MapPin className="w-4 h-4 text-[#5CE1E6]" />
+                </div>
+                <span className="mt-2 leading-relaxed">{t('footer.address')}</span>
+              </li>
+              <li className="flex items-center gap-4 text-sm text-slate-300 group">
+                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#5CE1E6]/20 group-hover:border-[#5CE1E6]/30 transition-colors">
+                  <Phone className="w-4 h-4 text-[#5CE1E6]" />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span dir="ltr" className="font-medium tracking-wide">{t('footer.phone1')}</span>
+                  <span dir="ltr" className="font-medium tracking-wide">{t('footer.phone2')}</span>
+                </div>
+              </li>
+              <li className="flex items-start gap-4 text-sm text-slate-300 group">
+                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#5CE1E6]/20 group-hover:border-[#5CE1E6]/30 transition-colors">
+                  <Mail className="w-4 h-4 text-[#5CE1E6]" />
+                </div>
+                <div className="flex flex-col gap-1 mt-2">
+                  <a href={`mailto:${t('footer.email1')}`} className="hover:text-white transition-colors cursor-pointer">{t('footer.email1')}</a>
+                  <a href={`mailto:${t('footer.email2')}`} className="hover:text-white transition-colors cursor-pointer">{t('footer.email2')}</a>
+                </div>
+              </li>
+            </ul>
+          </motion.div>
+        </div>
+
+        {/* Bottom Bar */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <p className="text-sm text-slate-500">{t('footer.rights')}</p>
+          <div className="flex gap-6 text-sm text-slate-500">
+            <a href="#" className="hover:text-white transition-colors">{t('footer.privacy')}</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.terms')}</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.cookies')}</a>
+          </div>
+        </motion.div>
+      </div>
+    </footer>
+  );
+}
