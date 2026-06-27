@@ -20,11 +20,15 @@ const alexandria = Alexandria({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://alyasmin-services.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: 'شركة الياسمين للخدمات | AL-YASMIN SERVICES CO.',
     template: '%s | شركة الياسمين للخدمات',
   },
-  description: 'شركة الياسمين للخدمات تقدم حلولاً متكاملة في إدارة المرافق، خدمات التنظيف الاحترافية، والضيافة المتميزة للشركات والمؤسسات. Al-Yasmin Services Co. provides integrated solutions in facility management, cleaning services, and premium hospitality for businesses.',
+  description: 'شركة الياسمين: حلول متكاملة في إدارة المرافق، خدمات التنظيف، والضيافة للشركات. Al-Yasmin: Facility management, cleaning & hospitality services.',
   keywords: [
     'إدارة مرافق',
     'خدمات تنظيف',

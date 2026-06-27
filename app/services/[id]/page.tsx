@@ -187,9 +187,9 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
             >
               {/* Features */}
               <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">
+                <h2 className="text-2xl font-bold text-slate-900 mb-6">
                   {t('services.features')}
-                </h3>
+                </h2>
                 <ul className="space-y-4">
                   {features.map((feature, index) => (
                     <motion.li
@@ -211,9 +211,9 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
               {caseStudyTitle && (
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#5CE1E6]/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
-                  <h3 className="text-xl font-bold text-[#00509E] mb-3 relative z-10">
+                  <h2 className="text-xl font-bold text-[#00509E] mb-3 relative z-10">
                     {caseStudyTitle}
-                  </h3>
+                  </h2>
                   <p className="text-slate-600 leading-relaxed relative z-10">
                     {caseStudyDesc}
                   </p>

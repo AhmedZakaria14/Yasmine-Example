@@ -40,7 +40,7 @@ export function AboutPreview() {
               
               {/* Image Overlay Content */}
               <div className="absolute bottom-0 left-0 right-0 p-10 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <h3 className="text-3xl font-bold mb-3">{t('about.overlay.title')}</h3>
+                <p className="text-3xl font-bold mb-3">{t('about.overlay.title')}</p>
                 <p className="text-white/80 text-base max-w-sm">{t('about.overlay.desc')}</p>
               </div>
             </div>
@@ -58,7 +58,7 @@ export function AboutPreview() {
                   <span className="text-white font-bold text-2xl">15+</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg leading-tight">{t('stats.years')}</h4>
+                  <p className="font-bold text-slate-900 text-lg leading-tight">{t('stats.years')}</p>
                   <p className="text-xs text-[#00509E] font-bold uppercase tracking-wider">{t('about.badge.exp')}</p>
                 </div>
               </div>

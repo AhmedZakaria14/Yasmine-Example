@@ -58,9 +58,9 @@ export function Statistics() {
               <div className="w-20 h-20 bg-white/5 group-hover:bg-white/10 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-md border border-white/10 transition-all duration-300 group-hover:-translate-y-2 shadow-lg">
                 <stat.icon className="w-10 h-10 text-[#5CE1E6] transition-transform duration-300 group-hover:scale-110" />
               </div>
-              <h3 className="text-5xl md:text-6xl font-bold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70">
+              <p className="text-5xl md:text-6xl font-bold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70">
                 {stat.value}
-              </h3>
+              </p>
               <p className="text-slate-300 font-medium text-sm md:text-base uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">
                 {stat.label}
               </p>

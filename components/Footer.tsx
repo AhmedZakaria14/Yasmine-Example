@@ -73,7 +73,7 @@ export function Footer() {
               {t('footer.desc')}
             </p>
             <div className="flex gap-4">
-              <a href="https://www.instagram.com/alyasmin922/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#5CE1E6] hover:border-[#5CE1E6] hover:text-[#003366] transition-all duration-300 hover:-translate-y-1 shadow-sm" aria-label="Instagram">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#5CE1E6] hover:border-[#5CE1E6] hover:text-[#003366] transition-all duration-300 hover:-translate-y-1 shadow-sm" aria-label="Instagram">
                 <Instagram className="w-4 h-4" />
               </a>
             </div>
@@ -101,7 +101,7 @@ export function Footer() {
             variants={staggerVariants}
             className="lg:col-span-2"
           >
-            <h3 className="text-white font-semibold text-lg mb-6 tracking-wide">{t('footer.links')}</h3>
+            <p className="text-white font-semibold text-lg mb-6 tracking-wide">{t('footer.links')}</p>
             <ul className="space-y-4">
               {['home', 'about', 'services', 'certifications', 'clients', 'contact'].map((item) => (
                 <li key={item}>
@@ -123,7 +123,7 @@ export function Footer() {
             variants={staggerVariants}
             className="lg:col-span-3"
           >
-            <h3 className="text-white font-semibold text-lg mb-6 tracking-wide">{t('nav.services')}</h3>
+            <p className="text-white font-semibold text-lg mb-6 tracking-wide">{t('nav.services')}</p>
             <ul className="space-y-4">
               {['maintenance', 'cleaning', 'hospitality', 'pest', 'landscaping'].map((item) => (
                 <li key={item}>
@@ -145,7 +145,7 @@ export function Footer() {
             variants={staggerVariants}
             className="lg:col-span-3"
           >
-            <h3 className="text-white font-semibold text-lg mb-6 tracking-wide">{t('footer.contact')}</h3>
+            <p className="text-white font-semibold text-lg mb-6 tracking-wide">{t('footer.contact')}</p>
             <ul className="space-y-5">
               <li className="flex items-start gap-4 text-sm text-slate-300 group">
                 <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#5CE1E6]/20 group-hover:border-[#5CE1E6]/30 transition-colors">
