@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from './LanguageProvider';
 import { Menu, X, Globe, ChevronRight, ChevronLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -41,12 +42,19 @@ export function Navbar() {
         }`}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group shrink-0">
-          <div className="w-10 h-10 bg-gradient-to-br from-[#00509E] to-[#5CE1E6] rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
-            {lang === 'ar' ? 'ي' : 'Y'}
+        <Link href="/" className="flex items-center gap-2 md:gap-3 group shrink-0">
+          <div className="relative w-12 h-12 md:w-16 md:h-16 group-hover:scale-105 transition-transform">
+            <Image
+              src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png"
+              alt="Al Yasmin Logo"
+              fill
+              className="object-contain"
+              referrerPolicy="no-referrer"
+              priority
+            />
           </div>
-          <span className="font-bold text-lg md:text-xl text-slate-900 tracking-tight group-hover:text-[#00509E] transition-colors">
-            {lang === 'ar' ? 'الياسمين' : 'Al Yasmin'}
+          <span className="font-bold text-sm sm:text-base md:text-lg text-slate-900 tracking-tight group-hover:text-[#00509E] transition-colors">
+            {lang === 'ar' ? 'شركة الياسمين للخدمات' : 'AL-YASMIN SERVICES CO.'}
           </span>
         </Link>
 

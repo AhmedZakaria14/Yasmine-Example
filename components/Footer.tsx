@@ -3,8 +3,9 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from './LanguageProvider';
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, ArrowRight, ArrowLeft } from 'lucide-react';
 
 export function Footer() {
   const { t, dir, lang } = useLanguage();
@@ -57,21 +58,37 @@ export function Footer() {
             className="lg:col-span-4 space-y-8"
           >
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-white to-slate-200 rounded-xl flex items-center justify-center text-[#00509E] font-bold text-2xl shadow-lg group-hover:scale-105 transition-transform">
-                {lang === 'ar' ? 'ي' : 'Y'}
+              <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 bg-white rounded-2xl shadow-lg group-hover:scale-105 transition-transform overflow-hidden">
+                <Image
+                  src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png"
+                  alt="Al Yasmin Logo"
+                  fill
+                  className="object-contain p-2 md:p-3"
+                  referrerPolicy="no-referrer"
+                />
               </div>
-              <span className="font-bold text-2xl text-white tracking-tight">{lang === 'ar' ? 'الياسمين' : 'Al Yasmin'}</span>
+              <span className="font-bold text-xl md:text-2xl text-white tracking-tight">{lang === 'ar' ? 'شركة الياسمين للخدمات' : 'AL-YASMIN SERVICES CO.'}</span>
             </Link>
             <p className="text-sm leading-relaxed max-w-sm text-slate-300">
               {t('footer.desc')}
             </p>
             <div className="flex gap-4">
-              <a href="https://twitter.com/Alyasmin92" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#5CE1E6] hover:border-[#5CE1E6] hover:text-[#003366] transition-all duration-300 hover:-translate-y-1 shadow-sm">
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a href="https://instagram.com/Alyasmin922" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#5CE1E6] hover:border-[#5CE1E6] hover:text-[#003366] transition-all duration-300 hover:-translate-y-1 shadow-sm">
+              <a href="https://www.instagram.com/alyasmin922/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#5CE1E6] hover:border-[#5CE1E6] hover:text-[#003366] transition-all duration-300 hover:-translate-y-1 shadow-sm" aria-label="Instagram">
                 <Instagram className="w-4 h-4" />
               </a>
+            </div>
+            
+            <div className="pt-4">
+              <div className="bg-white p-3 rounded-2xl shadow-lg flex items-center justify-center w-32 h-20 md:w-40 md:h-24 hover:-translate-y-1 transition-transform duration-300 border border-white/10">
+                <Image
+                  src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782542478/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%B1%D8%A4%D9%8A%D8%A9_%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9_2030_-_Saudi_vision_2030_Logo_SVG_1_u27dds.png"
+                  alt="Saudi Vision 2030"
+                  width={120}
+                  height={60}
+                  className="object-contain w-full h-full"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
             </div>
           </motion.div>
 
@@ -164,13 +181,22 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
+          className="border-t border-white/10 pt-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-start"
         >
-          <p className="text-sm text-slate-500">{t('footer.rights')}</p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <p className="text-sm text-slate-500">{t('footer.rights')}</p>
+            <span className="hidden md:inline-block text-slate-700">•</span>
+            <p className="text-sm text-slate-500 flex items-center gap-1.5">
+              {lang === 'ar' ? 'تم التصميم والتطوير بواسطة' : 'Designed & Developed by'}
+              <a href="https://nasharhub.com" target="_blank" rel="noopener noreferrer" className="text-[#5CE1E6] hover:text-white font-semibold transition-colors">
+                NasharHub.com
+              </a>
+            </p>
+          </div>
           <div className="flex gap-6 text-sm text-slate-500">
-            <a href="#" className="hover:text-white transition-colors">{t('footer.privacy')}</a>
-            <a href="#" className="hover:text-white transition-colors">{t('footer.terms')}</a>
-            <a href="#" className="hover:text-white transition-colors">{t('footer.cookies')}</a>
+            <Link href="/privacy" className="hover:text-white transition-colors">{t('footer.privacy')}</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">{t('footer.terms')}</Link>
+            <Link href="/cookies" className="hover:text-white transition-colors">{t('footer.cookies')}</Link>
           </div>
         </motion.div>
       </div>

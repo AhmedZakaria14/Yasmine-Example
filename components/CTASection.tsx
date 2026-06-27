@@ -77,7 +77,7 @@ export function CTASection() {
               className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-6"
             >
               <a
-                href="mailto:info@alyasminservices.com"
+                href={`mailto:${t('footer.email1')}`}
                 className="group inline-flex items-center justify-center gap-2 bg-[#00509E] hover:bg-[#00509E] text-white px-8 py-4 rounded-full font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto"
               >
                 {t('cta.button')}
@@ -88,11 +88,11 @@ export function CTASection() {
                 )}
               </a>
               <a
-                href="tel:+966500000000"
+                href={`tel:${t('footer.phone1').replace(/\s+/g, '')}`}
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-8 py-4 rounded-full font-medium transition-all shadow-sm border border-slate-200 hover:border-slate-300 w-full sm:w-auto"
               >
                 <Phone className="w-5 h-5 text-slate-500" />
-                <span dir="ltr">+966 50 000 0000</span>
+                <span dir="ltr">{t('footer.phone1')}</span>
               </a>
             </motion.div>
           </div>

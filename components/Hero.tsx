@@ -143,8 +143,8 @@ export function Hero() {
             <div className="relative h-full w-full rounded-[3rem] overflow-hidden shadow-2xl border border-white/50 bg-white p-2">
               <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&h=1600&auto=format&fit=crop"
-                  alt="Professional facility management"
+                  src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416847/01_%D8%BA%D9%84%D8%A7%D9%81_%D8%AE%D9%84%D9%81%D9%8A%D8%A9_%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6_nxdd3s.jpg"
+                  alt="Al Yasmin Services Riyadh Background"
                   fill
                   className="object-cover"
                   priority

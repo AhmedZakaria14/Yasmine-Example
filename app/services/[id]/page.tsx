@@ -1,10 +1,10 @@
 'use client';
 
-import { use } from 'react';
+import { use, useState, useEffect } from 'react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '@/components/LanguageProvider';
 import { CTASection } from '@/components/CTASection';
 import { Wrench, Droplets, Coffee, Bug, Leaf, CheckCircle2 } from 'lucide-react';
@@ -12,27 +12,27 @@ import { Wrench, Droplets, Coffee, Bug, Leaf, CheckCircle2 } from 'lucide-react'
 const servicesData = {
   maintenance: {
     icon: Wrench,
-    image: 'https://picsum.photos/seed/maintenance/1920/1080',
+    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416845/09_%D8%B5%D9%8A%D8%A7%D9%86%D8%A9_%D9%85%D8%A8%D9%86%D9%89_owbznd.jpg',
     related: ['cleaning', 'landscaping'],
   },
   cleaning: {
     icon: Droplets,
-    image: 'https://picsum.photos/seed/cleaning/1920/1080',
+    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416847/11_%D9%86%D8%B8%D8%A7%D9%81%D8%A9_%D8%A7%D8%B1%D8%B6%D9%8A%D8%A7%D8%AA_mgp4du.jpg',
     related: ['maintenance', 'pest'],
   },
   hospitality: {
     icon: Coffee,
-    image: 'https://picsum.photos/seed/hospitality/1920/1080',
+    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416848/15_%D8%B6%D9%8A%D8%A7%D9%81%D8%A9_%D9%86%D8%A7%D8%AF%D9%84_ytxbnx.jpg',
     related: ['cleaning', 'maintenance'],
   },
   pest: {
     icon: Bug,
-    image: 'https://picsum.photos/seed/pest/1920/1080',
+    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416849/17_%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9_%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA1_ohplqy.jpg',
     related: ['cleaning', 'landscaping'],
   },
   landscaping: {
     icon: Leaf,
-    image: 'https://picsum.photos/seed/landscaping/1920/1080',
+    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416850/20_%D8%AD%D8%AF%D8%A7%D8%A6%D9%821_wnhm0f.jpg',
     related: ['maintenance', 'pest'],
   },
 };
@@ -40,6 +40,15 @@ const servicesData = {
 export default function ServiceDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const { t, dir } = useLanguage();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate network request
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [id]);
 
   if (!Object.keys(servicesData).includes(id)) {
     notFound();
@@ -63,10 +72,56 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
     .map(num => getTranslation(`service.${id}.detail.features.${num}`))
     .filter(Boolean);
 
+  if (isLoading) {
+    return (
+      <div className="pt-20" dir={dir}>
+        {/* Skeleton Hero Section */}
+        <div className="relative bg-[#003366] py-32 overflow-hidden">
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-3xl">
+              <div className="w-48 h-10 bg-white/10 rounded-full mb-8 animate-pulse" />
+              <div className="w-3/4 h-14 md:h-16 lg:h-20 bg-white/10 rounded-2xl mb-6 animate-pulse" />
+              <div className="w-full h-8 bg-white/10 rounded-xl mb-3 animate-pulse" />
+              <div className="w-5/6 h-8 bg-white/10 rounded-xl animate-pulse" />
+            </div>
+          </div>
+        </div>
+
+        {/* Skeleton Content Section */}
+        <div className="py-24 bg-slate-50">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="aspect-[4/3] bg-slate-200 rounded-[2rem] animate-pulse" />
+              <div className="space-y-12">
+                <div>
+                  <div className="w-48 h-8 bg-slate-200 rounded-lg mb-6 animate-pulse" />
+                  <div className="space-y-4">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-slate-200 shrink-0 animate-pulse" />
+                        <div className="w-full h-6 bg-slate-200 rounded-md animate-pulse" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="h-40 bg-slate-200 rounded-2xl animate-pulse" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="pt-20" dir={dir}>
       {/* Hero Section */}
       <div className="relative bg-[#003366] text-white py-32 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-overlay"
+          style={{ backgroundImage: `url('${service.image}')` }}
+        />
         <div className="absolute inset-0 bg-grid-pattern-dark opacity-20" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00509E] rounded-full blur-[120px] pointer-events-none" />
         
@@ -133,7 +188,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
               {/* Features */}
               <div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-6">
-                  {dir === 'rtl' ? 'الميزات الرئيسية' : 'Key Features'}
+                  {t('services.features')}
                 </h3>
                 <ul className="space-y-4">
                   {features.map((feature, index) => (
@@ -174,7 +229,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              {dir === 'rtl' ? 'خدمات ذات صلة' : 'Related Services'}
+              {t('services.related')}
             </h2>
             <div className="w-24 h-1 bg-[#5CE1E6] mx-auto rounded-full" />
           </div>
