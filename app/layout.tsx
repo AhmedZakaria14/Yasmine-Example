@@ -25,10 +25,10 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   title: {
-    default: 'شركة الياسمين للخدمات | AL-YASMIN SERVICES CO.',
-    template: '%s | شركة الياسمين للخدمات',
+    default: 'شركة خدمات الياسمين | AL-YASMIN SERVICES CO.',
+    template: '%s | شركة خدمات الياسمين',
   },
-  description: 'شركة الياسمين: حلول متكاملة في إدارة المرافق، خدمات التنظيف، والضيافة للشركات. Al-Yasmin: Facility management, cleaning & hospitality services.',
+  description: 'شركة خدمات الياسمين: حلول متكاملة في إدارة المرافق، خدمات التنظيف، والضيافة للشركات. Al-Yasmin: Facility management, cleaning & hospitality services.',
   keywords: [
     'إدارة مرافق',
     'خدمات تنظيف',
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     'Building Maintenance',
     'Al-Yasmin Services'
   ],
-  authors: [{ name: 'شركة الياسمين للخدمات' }, { name: 'Al-Yasmin Services Co.' }],
-  creator: 'شركة الياسمين للخدمات',
+  authors: [{ name: 'شركة خدمات الياسمين' }, { name: 'Al-Yasmin Services Co.' }],
+  creator: 'شركة خدمات الياسمين',
   publisher: 'AL-YASMIN SERVICES CO.',
   formatDetection: {
     email: false,
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'شركة الياسمين للخدمات | AL-YASMIN SERVICES CO.',
+    title: 'شركة خدمات الياسمين | AL-YASMIN SERVICES CO.',
     description: 'حلول متكاملة ومتميزة في إدارة المرافق، خدمات التنظيف الاحترافية، والضيافة في المملكة العربية السعودية. Integrated facility management and cleaning solutions.',
-    siteName: 'شركة الياسمين للخدمات',
+    siteName: 'شركة خدمات الياسمين',
     images: [
       {
         url: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png',
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'شركة الياسمين للخدمات | AL-YASMIN SERVICES CO.',
+    title: 'شركة خدمات الياسمين | AL-YASMIN SERVICES CO.',
     description: 'حلول متكاملة في إدارة المرافق، النظافة، والضيافة للشركات. Integrated facility management and cleaning solutions.',
     images: ['https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png'],
   },
@@ -95,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "شركة الياسمين للخدمات | Al-Yasmin Services Co.",
+    "name": "شركة خدمات الياسمين | Al-Yasmin Services Co.",
     "image": "https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png",
     "@id": "https://alyasmin-services.com",
     "url": "https://alyasmin-services.com",

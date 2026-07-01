@@ -54,7 +54,7 @@ export function Navbar() {
             />
           </div>
           <span className="font-bold text-sm sm:text-base md:text-lg text-slate-900 tracking-tight group-hover:text-[#00509E] transition-colors">
-            {lang === 'ar' ? 'شركة الياسمين للخدمات' : 'AL-YASMIN SERVICES CO.'}
+            {lang === 'ar' ? 'شركة خدمات الياسمين' : 'AL-YASMIN SERVICES CO.'}
           </span>
         </Link>
 

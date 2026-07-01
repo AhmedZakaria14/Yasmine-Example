@@ -67,7 +67,7 @@ export function Footer() {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <span className="font-bold text-xl md:text-2xl text-white tracking-tight">{lang === 'ar' ? 'شركة الياسمين للخدمات' : 'AL-YASMIN SERVICES CO.'}</span>
+              <span className="font-bold text-xl md:text-2xl text-white tracking-tight">{lang === 'ar' ? 'شركة خدمات الياسمين' : 'AL-YASMIN SERVICES CO.'}</span>
             </Link>
             <p className="text-sm leading-relaxed max-w-sm text-slate-300">
               {t('footer.desc')}
