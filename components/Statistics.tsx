@@ -17,10 +17,10 @@ export function Statistics() {
   const yBg = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
 
   const stats = [
-    { id: 'clients', icon: Users, value: '500+', label: t('stats.clients') },
-    { id: 'projects', icon: Briefcase, value: '1200+', label: t('stats.projects') },
-    { id: 'employees', icon: Award, value: '300+', label: t('stats.employees') },
-    { id: 'years', icon: Clock, value: '15+', label: t('stats.years') },
+    { id: 'clients', icon: Users, value: '50+', label: t('stats.clients') },
+    { id: 'projects', icon: Briefcase, value: '60+', label: t('stats.projects') },
+    { id: 'employees', icon: Award, value: '100+', label: t('stats.employees') },
+    { id: 'years', icon: Clock, value: '2+', label: t('stats.years') },
   ];
 
   const staggerVariants = {

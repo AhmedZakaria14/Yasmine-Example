@@ -55,7 +55,7 @@ export function AboutPreview() {
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-14 h-14 bg-gradient-to-br from-[#00509E] to-[#5CE1E6] rounded-full flex items-center justify-center shadow-inner">
-                  <span className="text-white font-bold text-2xl">15+</span>
+                  <span className="text-white font-bold text-2xl">2+</span>
                 </div>
                 <div>
                   <p className="font-bold text-slate-900 text-lg leading-tight">{t('stats.years')}</p>

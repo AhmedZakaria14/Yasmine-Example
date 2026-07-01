@@ -31,9 +31,6 @@ export function ClientsLogos() {
     { en: 'ABM Arabian Business Machines', ar: 'الشركة العربية لمكائن الأعمال (ABM)', src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541285/ABM_Arabian_Business_Machines_u9s5dm.png' }
   ];
 
-  // Duplicate logos for infinite scroll effect
-  const extendedClients = [...clients, ...clients];
-
   return (
     <section id="clients" className="py-24 bg-white/95 relative overflow-hidden" dir={dir}>
       {/* Subtle top border gradient */}
@@ -51,34 +48,28 @@ export function ClientsLogos() {
           </motion.span>
         </div>
 
-        {/* Infinite Scroll Container */}
-        <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-32 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-32 after:bg-gradient-to-l after:from-white after:to-transparent">
-          <motion.div
-            animate={{
-              x: dir === 'rtl' ? ['0%', '50%'] : ['0%', '-50%'],
-            }}
-            transition={{
-              duration: 40,
-              ease: 'linear',
-              repeat: Infinity,
-            }}
-            className="flex w-[200%] items-center gap-16 md:gap-24 transform-gpu will-change-transform"
-          >
-            {extendedClients.map((client, index) => (
-              <div
-                key={index}
-                className="relative h-16 md:h-20 w-32 md:w-48 shrink-0 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex items-center justify-center"
-              >
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8">
+          {clients.map((client, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md hover:border-slate-200 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center aspect-[4/3] relative group"
+            >
+              <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src={client.src}
                   alt={dir === 'rtl' ? client.ar : client.en}
                   fill
-                  className="object-contain"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  className="object-contain p-2"
                   referrerPolicy="no-referrer"
                 />
               </div>
-            ))}
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
