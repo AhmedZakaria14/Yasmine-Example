@@ -28,7 +28,9 @@ export function ClientsLogos() {
     { en: 'ch2m', ar: 'ch2m', src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541306/ch2m_opye1e.png' },
     { en: 'Technical Trade Co.', ar: 'شركة التداول الفني', src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541315/Technical_Trade_Co_wk6qgq.png' },
     { en: 'Norconsult Telematics', ar: 'نوركونسلت تيليماتيكس', src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541311/Norconsult_Telematics_wzo5h2.png' },
-    { en: 'ABM Arabian Business Machines', ar: 'الشركة العربية لمكائن الأعمال (ABM)', src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541285/ABM_Arabian_Business_Machines_u9s5dm.png' }
+    { en: 'ABM Arabian Business Machines', ar: 'الشركة العربية لمكائن الأعمال (ABM)', src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541285/ABM_Arabian_Business_Machines_u9s5dm.png' },
+    { en: 'Client 22', ar: 'عميل 22', src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783238008/WhatsApp_Image_2026-07-02_at_2.56.28_PM_1_eq4y5k.jpg' },
+    { en: 'Client 23', ar: 'عميل 23', src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783238008/WhatsApp_Image_2026-07-02_at_2.56.28_PM_w4qu5i.jpg' }
   ];
 
   return (
