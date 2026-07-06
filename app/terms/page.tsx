@@ -62,7 +62,7 @@ export default function TermsOfServicePage() {
 
                 <h2>5. إخلاء المسؤولية</h2>
                 <p>
-                  يتم توفير المواد والمعلومات على موقعنا "كما هي". لا تقدم شركة خدمات الياسمين أي ضمانات، صريحة أو ضمنية، وتنفي بموجب هذا جميع الضمانات الأخرى بما في ذلك الضمانات الضمنية أو شروط التسويق أو الملاءمة لغرض معين.
+                  يتم توفير المواد والمعلومات على موقعنا &quot;كما هي&quot;. لا تقدم شركة خدمات الياسمين أي ضمانات، صريحة أو ضمنية، وتنفي بموجب هذا جميع الضمانات الأخرى بما في ذلك الضمانات الضمنية أو شروط التسويق أو الملاءمة لغرض معين.
                 </p>
 
                 <h2>6. حدود المسؤولية</h2>
@@ -102,7 +102,7 @@ export default function TermsOfServicePage() {
 
                 <h2>5. Disclaimer</h2>
                 <p>
-                  The materials on our website are provided on an 'as is' basis. Al-Yasmin Services Co. makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                  The materials on our website are provided on an &apos;as is&apos; basis. Al-Yasmin Services Co. makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
                 </p>
 
                 <h2>6. Limitations of Liability</h2>

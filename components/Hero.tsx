@@ -57,7 +57,7 @@ export function Hero() {
               initial="hidden"
               animate="visible"
               variants={textVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] tracking-tight mb-8"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] tracking-tight mb-8 break-words whitespace-normal"
             >
               {lang === 'ar' ? (
                 <>

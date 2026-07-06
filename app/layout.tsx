@@ -130,14 +130,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" suppressHydrationWarning className="overflow-x-hidden w-full max-w-[100vw]">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${alexandria.variable} bg-slate-50 text-slate-900 antialiased overflow-x-hidden`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${alexandria.variable} bg-slate-50 text-slate-900 antialiased overflow-x-hidden w-full max-w-[100vw]`} suppressHydrationWarning>
         <ClientErrorBoundary>
           <LanguageProvider>
             <AnimatedLinesBackground />
