@@ -68,7 +68,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ id: st
   const caseStudyTitle = getTranslation(`service.${id}.detail.caseStudy.title`);
   const caseStudyDesc = getTranslation(`service.${id}.detail.caseStudy.desc`);
 
-  const features = [1, 2, 3, 4]
+  const features = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     .map(num => getTranslation(`service.${id}.detail.features.${num}`))
     .filter(Boolean);
 
