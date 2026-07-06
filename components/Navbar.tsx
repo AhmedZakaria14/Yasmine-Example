@@ -31,19 +31,19 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl transition-all duration-500`}
+      className={`fixed top-4 inset-x-0 mx-auto z-50 w-[95%] max-w-6xl transition-all duration-500`}
       dir={dir}
     >
       <div 
-        className={`relative flex items-center justify-between px-4 py-3 md:px-6 md:py-3 rounded-full transition-all duration-500 ${
+        className={`relative flex items-center justify-between px-3 py-2 md:px-6 md:py-3 rounded-full transition-all duration-500 ${
           isScrolled 
             ? 'bg-white/80 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/50' 
             : 'bg-white/60 backdrop-blur-xl shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-white/30'
         }`}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 md:gap-3 group shrink-0">
-          <div className="relative w-12 h-12 md:w-16 md:h-16 group-hover:scale-105 transition-transform">
+        <Link href="/" className="flex items-center gap-1.5 sm:gap-2 md:gap-3 group shrink-0 max-w-[65%] sm:max-w-none">
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 group-hover:scale-105 transition-transform shrink-0">
             <Image
               src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png"
               alt="Al Yasmin Logo"
@@ -53,7 +53,7 @@ export function Navbar() {
               priority
             />
           </div>
-          <span className="font-bold text-sm sm:text-base md:text-lg text-slate-900 tracking-tight group-hover:text-[#00509E] transition-colors">
+          <span className="font-bold text-xs sm:text-sm md:text-lg text-slate-900 tracking-tight group-hover:text-[#00509E] transition-colors truncate">
             {lang === 'ar' ? 'شركة خدمات الياسمين' : 'AL-YASMIN SERVICES CO.'}
           </span>
         </Link>

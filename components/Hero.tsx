@@ -114,7 +114,7 @@ export function Hero() {
               initial="hidden"
               animate="visible"
               variants={textVariants}
-              className="flex items-center justify-center lg:justify-start gap-6 text-sm font-medium text-slate-500"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-sm font-medium text-slate-500"
             >
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-[#00509E]" />

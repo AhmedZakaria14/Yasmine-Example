@@ -137,7 +137,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${alexandria.variable} bg-slate-50 text-slate-900 antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${alexandria.variable} bg-slate-50 text-slate-900 antialiased overflow-x-hidden`} suppressHydrationWarning>
         <ClientErrorBoundary>
           <LanguageProvider>
             <AnimatedLinesBackground />
