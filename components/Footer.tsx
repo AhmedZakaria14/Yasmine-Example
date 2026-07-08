@@ -9,7 +9,7 @@ import { Mail, Phone, MapPin, Instagram, ArrowRight, ArrowLeft } from 'lucide-re
 
 export function Footer() {
   const { t, dir, lang } = useLanguage();
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLElement>(null!);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '@/components/LanguageProvider';
 import { CTASection } from '@/components/CTASection';
-import { Wrench, Droplets, Coffee, Bug, Leaf, CheckCircle2 } from 'lucide-react';
+import { Wrench, Droplets, Coffee, Bug, Leaf, Building, Camera, Fan, Truck, Hammer, Zap, ShieldAlert, CheckCircle2 } from 'lucide-react';
 
 const servicesData = {
   maintenance: {
@@ -34,6 +34,46 @@ const servicesData = {
     icon: Leaf,
     image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416850/20_%D8%AD%D8%AF%D8%A7%D8%A6%D9%821_wnhm0f.jpg',
     related: ['maintenance', 'pest'],
+  },
+  facilities_management: {
+    icon: Building,
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop',
+    related: ['maintenance', 'cleaning'],
+  },
+  security_cameras: {
+    icon: Camera,
+    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2670&auto=format&fit=crop',
+    related: ['maintenance'],
+  },
+  water_tanks: {
+    icon: Droplets,
+    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783487543/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87-%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6_o3utul.jpg',
+    related: ['cleaning', 'maintenance'],
+  },
+  ac_maintenance: {
+    icon: Fan,
+    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783487543/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A7%D9%84%D9%85%D9%83%D9%8A%D9%81-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%B9%D9%8A_j63lpi.webp',
+    related: ['maintenance'],
+  },
+  furniture_moving: {
+    icon: Truck,
+    image: 'https://images.unsplash.com/photo-1600518464441-9154a4dea21b?q=80&w=2670&auto=format&fit=crop',
+    related: ['maintenance'],
+  },
+  building_restoration: {
+    icon: Hammer,
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2670&auto=format&fit=crop',
+    related: ['maintenance'],
+  },
+  leak_detection: {
+    icon: ShieldAlert,
+    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783487544/%D8%B4%D8%B1%D9%83%D8%A9-%D9%83%D8%B4%D9%81-%D8%AA%D8%B3%D8%B1%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87_vxc6wm.jpg',
+    related: ['maintenance'],
+  },
+  plumbing_electrical: {
+    icon: Zap,
+    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783487550/IMG_20231203_121310_nkmgvt.jpg',
+    related: ['maintenance'],
   },
 };
 
