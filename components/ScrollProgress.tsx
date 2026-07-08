@@ -1,11 +1,10 @@
 'use client';
 
-import { motion as rawMotion, useScroll, useSpring } from 'framer-motion';
-const motion = rawMotion as any;
+import { motion, useScroll, useSpring } from 'motion/react';
 import { useLanguage } from './LanguageProvider';
 
 export function ScrollProgress() {
-  const scrollYProgress = useScroll().scrollYProgress;
+  const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,

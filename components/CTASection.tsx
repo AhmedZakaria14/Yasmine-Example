@@ -1,8 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion as rawMotion, useScroll, useTransform } from 'framer-motion';
-const motion = rawMotion as any;
+import { motion, useScroll, useTransform } from 'motion/react';
 import { useLanguage } from './LanguageProvider';
 import { ArrowRight, ArrowLeft, Mail, Phone } from 'lucide-react';
 
@@ -11,7 +10,7 @@ export function CTASection() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
-    target: containerRef as any,
+    target: containerRef,
     offset: ["start end", "end start"]
   });
 
@@ -27,10 +26,10 @@ export function CTASection() {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           style={{ y: yCard }}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="relative bg-white rounded-[2.5rem] p-10 md:p-16 lg:p-20 shadow-2xl border border-slate-100 max-w-5xl mx-auto text-center overflow-hidden transform-gpu will-change-transform"
         >
           {/* Inner Glow */}
@@ -41,7 +40,7 @@ export function CTASection() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#00509E]/5 text-[#00509E] text-sm font-semibold mb-8"
             >
               <span className="relative flex h-2 w-2">
@@ -55,7 +54,7 @@ export function CTASection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.15] mb-6 tracking-tight"
             >
               {t('cta.title')}
@@ -64,7 +63,7 @@ export function CTASection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed"
             >
               {t('cta.subtitle')}
@@ -74,7 +73,7 @@ export function CTASection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ delay: 0.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-6"
             >
               <a

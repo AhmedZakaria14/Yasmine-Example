@@ -1,6 +1,5 @@
 {
   "name": "Al-Yasmin Services",
   "description": "Premium facility management, cleaning, and hospitality services.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "requestFramePermissions": []
 }

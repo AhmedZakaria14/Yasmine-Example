@@ -5,8 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from './LanguageProvider';
 import { Menu, X, Globe, ChevronRight, ChevronLeft } from 'lucide-react';
-import { motion as rawMotion, AnimatePresence } from 'framer-motion';
-const motion = rawMotion as any;
+import { motion, AnimatePresence } from 'motion/react';
 
 export function Navbar() {
   const { t, lang, setLang, dir } = useLanguage();
@@ -101,9 +100,9 @@ export function Navbar() {
             className="p-2 text-slate-700 hover:bg-white/50 rounded-full transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <div  >
+            <motion.div animate={{ rotate: isMobileMenuOpen ? 90 : 0 }} transition={{ duration: 0.2 }}>
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </div>
+            </motion.div>
           </button>
         </div>
 
@@ -111,19 +110,19 @@ export function Navbar() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="absolute top-[calc(100%+1rem)] left-0 w-full bg-white/95 backdrop-blur-3xl border border-white/50 shadow-[0_20px_40px_rgb(0,0,0,0.1)] rounded-3xl overflow-hidden lg:hidden"
             >
               <div className="flex flex-col p-4 space-y-1">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.name}
-                    initial={{ opacity: 0, x: dir === 'rtl' ? 10 : -10 }}
+                    initial={{ opacity: 0, x: dir === 'rtl' ? 20 : -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
+                    transition={{ delay: i * 0.05, duration: 0.3 }}
                   >
                     <Link
                       href={link.href}
@@ -138,7 +137,7 @@ export function Navbar() {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: navLinks.length * 0.05 }}
+                  transition={{ delay: navLinks.length * 0.05, duration: 0.3 }}
                   className="pt-4 pb-2 px-2"
                 >
                   <Link

@@ -2,12 +2,6 @@
   "name": "ai-studio-applet",
   "version": "0.1.0",
   "private": true,
-  "overrides": {
-    "framer-motion": {
-      "react": "19.0.0",
-      "react-dom": "19.0.0"
-    }
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -21,14 +15,13 @@
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "11.11.17",
-    "glob": "^13.0.6",
     "lucide-react": "^0.553.0",
-    "next": "15.1.0",
+    "motion": "^12.23.24",
+    "next": "^15.4.9",
     "postcss": "^8.5.6",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "tailwind-merge": "^3.6.0"
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.1.11",

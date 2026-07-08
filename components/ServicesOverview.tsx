@@ -3,17 +3,16 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion as rawMotion, useScroll, useTransform } from 'framer-motion';
-const motion = rawMotion as any;
+import { motion, useScroll, useTransform } from 'motion/react';
 import { useLanguage } from './LanguageProvider';
-import { Wrench, Droplets, Coffee, Bug, Leaf, ArrowRight, ArrowLeft, Building2, Camera, Box, Wind, Truck, Hammer, Umbrella, Zap } from 'lucide-react';
+import { Wrench, Droplets, Coffee, Bug, Leaf, ArrowRight, ArrowLeft } from 'lucide-react';
 
 export function ServicesOverview() {
   const { t, dir, lang } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
-    target: containerRef as any,
+    target: containerRef,
     offset: ["start end", "end start"]
   });
 
@@ -35,18 +34,11 @@ export function ServicesOverview() {
 
   const services = [
     {
-      id: 'facility',
-      icon: Building2,
-      title: t('service.facility.title'),
-      desc: t('service.facility.desc'),
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
-    },
-    {
       id: 'maintenance',
       icon: Wrench,
       title: t('service.maintenance.title'),
       desc: t('service.maintenance.desc'),
-      image: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=800&auto=format&fit=crop',
+      image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416845/09_%D8%B5%D9%8A%D8%A7%D9%86%D8%A9_%D9%85%D8%A8%D9%86%D9%89_owbznd.jpg',
     },
     {
       id: 'cleaning',
@@ -76,59 +68,10 @@ export function ServicesOverview() {
       desc: t('service.landscaping.desc'),
       image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416850/20_%D8%AD%D8%AF%D8%A7%D8%A6%D9%821_wnhm0f.jpg',
     },
-    {
-      id: 'cameras',
-      icon: Camera,
-      title: t('service.cameras.title'),
-      desc: t('service.cameras.desc'),
-      image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      id: 'tanks',
-      icon: Box,
-      title: t('service.tanks.title'),
-      desc: t('service.tanks.desc'),
-      image: 'https://images.unsplash.com/photo-1542013936693-884638332954?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      id: 'ac',
-      icon: Wind,
-      title: t('service.ac.title'),
-      desc: t('service.ac.desc'),
-      image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      id: 'furniture',
-      icon: Truck,
-      title: t('service.furniture.title'),
-      desc: t('service.furniture.desc'),
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      id: 'construction',
-      icon: Hammer,
-      title: t('service.construction.title'),
-      desc: t('service.construction.desc'),
-      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      id: 'insulation',
-      icon: Umbrella,
-      title: t('service.insulation.title'),
-      desc: t('service.insulation.desc'),
-      image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      id: 'mep',
-      icon: Zap,
-      title: t('service.mep.title'),
-      desc: t('service.mep.desc'),
-      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format&fit=crop',
-    },
   ];
 
   return (
-    <motion.section ref={containerRef} id="services" className="py-24 bg-slate-50/95 relative overflow-hidden" dir={dir}>
+    <section ref={containerRef} id="services" className="py-24 bg-slate-50/95 relative overflow-hidden" dir={dir}>
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-30 pointer-events-none" />
       
@@ -143,7 +86,7 @@ export function ServicesOverview() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white border border-slate-200 text-[#00509E] text-sm font-semibold shadow-sm mb-6"
           >
             {t('services.title')}
@@ -152,7 +95,7 @@ export function ServicesOverview() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.15] tracking-tight"
           >
             {t('services.subtitle')}
@@ -166,7 +109,7 @@ export function ServicesOverview() {
                 custom={index}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: '-50px' }}
                 variants={staggerVariants}
                 className="group bg-white rounded-[2rem] shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
                 style={{ willChange: 'transform' }}
@@ -208,6 +151,6 @@ export function ServicesOverview() {
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

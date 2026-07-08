@@ -6,7 +6,7 @@ import { ChevronRight, ChevronLeft, Home } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageProvider';
 
 export function Breadcrumbs({ className = '' }: { className?: string }) {
-  const pathname = usePathname() || "/";
+  const pathname = usePathname();
   const { t, dir } = useLanguage();
 
   if (pathname === '/') return null;

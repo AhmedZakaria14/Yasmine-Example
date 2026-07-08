@@ -1,7 +1,6 @@
 'use client';
 
-import { motion as rawMotion } from 'framer-motion';
-const motion = rawMotion as any;
+import { motion } from 'motion/react';
 import { useLanguage } from './LanguageProvider';
 import { ArrowRight, ArrowLeft, Building2, ShieldCheck, Leaf } from 'lucide-react';
 import Image from 'next/image';
@@ -134,9 +133,9 @@ export function Hero() {
 
           {/* Image/Visual Content */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative hidden lg:block h-[600px] w-full"
             style={{ willChange: 'transform' }}
           >
@@ -157,7 +156,7 @@ export function Hero() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
+                  transition={{ delay: 0.8, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   className={`absolute bottom-8 ${dir === 'rtl' ? 'right-8' : 'left-8'} glass-panel p-4 rounded-2xl shadow-lg flex items-center gap-4`}
                 >
                   <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white shadow-inner">
