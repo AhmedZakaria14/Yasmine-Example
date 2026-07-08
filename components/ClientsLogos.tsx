@@ -1,7 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'motion/react';
+import { motion as rawMotion } from 'framer-motion';
+const motion = rawMotion as any;
 import { useLanguage } from './LanguageProvider';
 
 export function ClientsLogos() {
@@ -41,7 +42,7 @@ export function ClientsLogos() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-sm font-medium mb-6"
@@ -57,7 +58,7 @@ export function ClientsLogos() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              transition={{ duration: 0.5, delay: index * 0.03 }}
               className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md hover:border-slate-200 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center aspect-[4/3] relative group"
             >
               <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-105">

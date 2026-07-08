@@ -1,7 +1,8 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion as rawMotion, useScroll, useTransform } from 'framer-motion';
+const motion = rawMotion as any;
 import { useLanguage } from './LanguageProvider';
 import { Users, Briefcase, Award, Clock } from 'lucide-react';
 
@@ -10,7 +11,7 @@ export function Statistics() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: containerRef as any,
     offset: ["start end", "end start"]
   });
 
@@ -38,7 +39,7 @@ export function Statistics() {
   };
 
   return (
-    <section ref={containerRef} className="py-24 bg-[#00509E] text-white relative overflow-hidden" dir={dir}>
+    <motion.section ref={containerRef} className="py-24 bg-[#00509E] text-white relative overflow-hidden" dir={dir}>
       {/* Premium Background Effects */}
       <motion.div style={{ y: yBg }} className="absolute inset-0 bg-grid-pattern-dark opacity-20" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#5CE1E6]/10 rounded-full blur-[100px] pointer-events-none" />
@@ -51,7 +52,7 @@ export function Statistics() {
               custom={index}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: '-50px' }}
+              
               variants={staggerVariants}
               className="flex flex-col items-center text-center group"
             >
@@ -68,6 +69,6 @@ export function Statistics() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

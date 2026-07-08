@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion as rawMotion } from 'framer-motion';
+const motion = rawMotion as any;
 import { Send, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from './LanguageProvider';
 
@@ -125,8 +126,8 @@ export function ContactForm() {
       
       {status === 'success' && (
         <motion.div
-          initial={{ opacity: 0, y: 10, height: 0 }}
-          animate={{ opacity: 1, y: 0, height: 'auto' }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           className="p-4 rounded-xl bg-green-50 border border-green-100 text-green-700 text-sm font-medium flex items-start gap-3"
         >
           <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />

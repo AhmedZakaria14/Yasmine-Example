@@ -2,7 +2,8 @@
 
 import { Phone, MessageCircle } from 'lucide-react';
 import { useLanguage } from './LanguageProvider';
-import { motion } from 'motion/react';
+import { motion as rawMotion } from 'framer-motion';
+const motion = rawMotion as any;
 
 export function FloatingActions() {
   const { dir } = useLanguage();
@@ -12,9 +13,9 @@ export function FloatingActions() {
     <div className={`fixed bottom-6 ${dir === 'rtl' ? 'left-6' : 'right-6'} z-50 flex flex-col gap-4`}>
       <motion.a
         href={`tel:+${phoneNumber}`}
-        initial={{ opacity: 0, scale: 0 }}
+        initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.3, delay: 0.5 }}
+        transition={{ delay: 0.2 }}
         className="w-14 h-14 bg-[#00509E] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 relative group"
         aria-label="Call Us"
       >
@@ -28,9 +29,9 @@ export function FloatingActions() {
         href={`https://wa.me/${phoneNumber}`}
         target="_blank"
         rel="noopener noreferrer"
-        initial={{ opacity: 0, scale: 0 }}
+        initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.3, delay: 0.6 }}
+        transition={{ delay: 0.4 }}
         className="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 relative group"
         aria-label="WhatsApp"
       >

@@ -10,31 +10,30 @@ interface LanguageContextType {
   dir: 'ltr' | 'rtl';
 }
 
-const LanguageContext = createContext<LanguageContextType | null>(null);
+const defaultContext: LanguageContextType = {
+  lang: 'ar',
+  setLang: () => {},
+  t: (key) => translations['ar'][key] || key,
+  dir: 'rtl',
+};
+
+const LanguageContext = createContext<LanguageContextType>(defaultContext);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState<Language>('ar');
-
-  useEffect(() => {
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  }, [lang]);
+  const lang: Language = 'ar';
+  const setLang = () => {};
 
   const t = (key: keyof typeof translations['ar']) => {
     return translations[lang][key] || key;
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t, dir: lang === 'ar' ? 'rtl' : 'ltr' }}>
+    <LanguageContext.Provider value={{ lang, setLang, t, dir: 'rtl' }}>
       {children}
     </LanguageContext.Provider>
   );
 }
 
 export function useLanguage() {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
+  return useContext(LanguageContext);
 }

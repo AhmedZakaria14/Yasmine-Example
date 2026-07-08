@@ -1,7 +1,8 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion as rawMotion, useScroll, useTransform } from 'framer-motion';
+const motion = rawMotion as any;
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from './LanguageProvider';
@@ -12,7 +13,7 @@ export function Footer() {
   const containerRef = useRef<HTMLElement>(null);
   
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: containerRef as any,
     offset: ["start end", "end end"]
   });
 
@@ -33,7 +34,7 @@ export function Footer() {
   };
 
   return (
-    <footer ref={containerRef} className="bg-[#003366] text-slate-300 pt-20 pb-10 relative overflow-hidden" dir={dir}>
+    <motion.footer ref={containerRef} className="bg-[#003366] text-slate-300 pt-20 pb-10 relative overflow-hidden" dir={dir}>
       {/* Premium Background Effects */}
       <div className="absolute inset-0 bg-grid-pattern-dark opacity-10" />
       <motion.div 
@@ -53,7 +54,7 @@ export function Footer() {
             custom={0}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            
             variants={staggerVariants}
             className="lg:col-span-4 space-y-8"
           >
@@ -97,7 +98,7 @@ export function Footer() {
             custom={1}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            
             variants={staggerVariants}
             className="lg:col-span-2"
           >
@@ -119,7 +120,7 @@ export function Footer() {
             custom={2}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            
             variants={staggerVariants}
             className="lg:col-span-3"
           >
@@ -141,7 +142,7 @@ export function Footer() {
             custom={3}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            
             variants={staggerVariants}
             className="lg:col-span-3"
           >
@@ -176,11 +177,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.8 }}
+        <div 
+          
+          
+          
+          
           className="border-t border-white/10 pt-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-start"
         >
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
@@ -198,8 +199,8 @@ export function Footer() {
             <Link href="/terms" className="hover:text-white transition-colors">{t('footer.terms')}</Link>
             <Link href="/cookies" className="hover:text-white transition-colors">{t('footer.cookies')}</Link>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

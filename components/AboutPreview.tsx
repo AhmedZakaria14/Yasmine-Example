@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { motion as rawMotion } from 'framer-motion';
+const motion = rawMotion as any;
 import { useLanguage } from './LanguageProvider';
 import Image from 'next/image';
 import { ShieldCheck, Users, Trophy, ArrowRight, ArrowLeft } from 'lucide-react';
@@ -22,10 +23,10 @@ export function AboutPreview() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Image Side */}
           <motion.div
-            initial={{ opacity: 0, x: dir === 'rtl' ? 50 : -50 }}
+            initial={{ opacity: 0, x: dir === 'rtl' ? 40 : -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="relative"
           >
             <div className="relative h-[600px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100 group">
@@ -47,10 +48,10 @@ export function AboutPreview() {
             
             {/* Floating Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className={`absolute top-12 ${dir === 'rtl' ? '-left-8' : '-right-8'} glass-panel p-6 rounded-2xl shadow-xl max-w-[260px] hidden md:block border border-white/40`}
             >
               <div className="flex items-center gap-4 mb-4">
@@ -70,10 +71,10 @@ export function AboutPreview() {
 
           {/* Content Side */}
           <motion.div
-            initial={{ opacity: 0, x: dir === 'rtl' ? -50 : 50 }}
+            initial={{ opacity: 0, x: dir === 'rtl' ? -40 : 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="space-y-8 lg:pl-8"
           >
             <div>
@@ -121,7 +122,7 @@ export function AboutPreview() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, delay: 0.6 }}
               className="pt-8 border-t border-slate-100"
             >
               <a
