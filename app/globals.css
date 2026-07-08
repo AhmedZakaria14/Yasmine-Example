@@ -3,6 +3,7 @@
 @theme {
   --font-inter: var(--font-inter);
   --font-alexandria: var(--font-alexandria);
+  --font-cairo: var(--font-cairo);
 }
 
 html {
@@ -14,7 +15,7 @@ html[dir="ltr"] body {
 }
 
 html[dir="rtl"] body {
-  font-family: var(--font-alexandria), sans-serif;
+  font-family: var(--font-cairo), var(--font-alexandria), sans-serif;
 }
 
 .bg-grid-pattern {
