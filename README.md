@@ -1,1 +1,1 @@
-This folder is for public assets like images.
+Designed & Developed by NasharHub.com نشر هاب — وكالة تصميم وتطوير ويب متخصصة
