@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Alexandria } from 'next/font/google';
 import './globals.css';
 import '@/lib/monkey-patch-stringify';
@@ -12,71 +12,90 @@ import { FloatingActions } from '@/components/FloatingActions';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
 });
 
 const alexandria = Alexandria({
   subsets: ['arabic', 'latin'],
   variable: '--font-alexandria',
+  display: 'swap',
 });
 
+const siteUrl = 'https://alyasmin-services.com';
+const logoUrl =
+  'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://alyasmin-services.com'),
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: '/',
   },
   title: {
-    default: 'شركة خدمات الياسمين | AL-YASMIN SERVICES CO.',
+    default: 'شركة خدمات الياسمين | إدارة المرافق والتنظيف بالرياض',
     template: '%s | شركة خدمات الياسمين',
   },
-  description: 'شركة خدمات الياسمين: حلول متكاملة في إدارة المرافق، خدمات التنظيف، والضيافة للشركات. Al-Yasmin: Facility management, cleaning & hospitality services.',
+  description:
+    'شركة خدمات الياسمين بالرياض تقدم إدارة المرافق والتشغيل والصيانة والتنظيف والضيافة ومكافحة الحشرات وصيانة المكيفات بخدمات احترافية متكاملة.',
   keywords: [
-    'إدارة مرافق',
-    'خدمات تنظيف',
-    'خدمات ضيافة',
-    'شركة تنظيف بالسعودية',
-    'نظافة عامة',
-    'صيانة المباني',
-    'تشغيل وصيانة',
-    'Facility Management',
-    'Cleaning Services',
-    'Hospitality Services',
-    'Saudi Arabia Cleaning Company',
-    'Building Maintenance',
-    'Al-Yasmin Services'
+    'شركة خدمات الياسمين',
+    'إدارة المرافق بالرياض',
+    'شركة تنظيف بالرياض',
+    'تشغيل وصيانة المباني',
+    'خدمات الضيافة',
+    'مكافحة الحشرات بالرياض',
+    'صيانة المكيفات بالرياض',
+    'تنظيف خزانات المياه',
+    'Facility Management Riyadh',
+    'Cleaning Services Riyadh',
+    'Building Maintenance Saudi Arabia',
   ],
-  authors: [{ name: 'شركة خدمات الياسمين' }, { name: 'Al-Yasmin Services Co.' }],
+  authors: [
+    { name: 'شركة خدمات الياسمين', url: siteUrl },
+    { name: 'Al-Yasmin Services Co.', url: siteUrl },
+  ],
   creator: 'شركة خدمات الياسمين',
   publisher: 'AL-YASMIN SERVICES CO.',
+  category: 'Facility Management',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   openGraph: {
-    title: 'شركة خدمات الياسمين | AL-YASMIN SERVICES CO.',
-    description: 'حلول متكاملة ومتميزة في إدارة المرافق، خدمات التنظيف الاحترافية، والضيافة في المملكة العربية السعودية. Integrated facility management and cleaning solutions.',
+    url: '/',
+    title: 'شركة خدمات الياسمين | إدارة المرافق والتنظيف بالرياض',
+    description:
+      'حلول متكاملة لإدارة المرافق والتشغيل والصيانة والتنظيف والضيافة في الرياض والمملكة العربية السعودية.',
     siteName: 'شركة خدمات الياسمين',
     images: [
       {
-        url: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png',
+        url: logoUrl,
         width: 800,
         height: 800,
-        alt: 'Al-Yasmin Services Co. Logo',
+        alt: 'شعار شركة خدمات الياسمين',
       },
     ],
     locale: 'ar_SA',
-    alternateLocale: 'en_US',
+    alternateLocale: ['en_US'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'شركة خدمات الياسمين | AL-YASMIN SERVICES CO.',
-    description: 'حلول متكاملة في إدارة المرافق، النظافة، والضيافة للشركات. Integrated facility management and cleaning solutions.',
-    images: ['https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png'],
+    title: 'شركة خدمات الياسمين | إدارة المرافق والتنظيف بالرياض',
+    description:
+      'حلول متكاملة لإدارة المرافق والتشغيل والصيانة والتنظيف والضيافة في الرياض.',
+    images: [logoUrl],
   },
   icons: {
-    icon: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png',
-    apple: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png',
+    icon: logoUrl,
+    apple: logoUrl,
   },
   robots: {
     index: true,
@@ -93,52 +112,63 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "شركة خدمات الياسمين | Al-Yasmin Services Co.",
-    "image": "https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png",
-    "@id": "https://alyasmin-services.com",
-    "url": "https://alyasmin-services.com",
-    "telephone": "+966533273366",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Riyadh",
-      "addressRegion": "Riyadh",
-      "addressCountry": "SA"
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
+    '@id': `${siteUrl}/#organization`,
+    name: 'شركة خدمات الياسمين',
+    alternateName: 'Al-Yasmin Services Co.',
+    image: logoUrl,
+    logo: logoUrl,
+    url: siteUrl,
+    telephone: '+966533273366',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Riyadh',
+      addressRegion: 'Riyadh',
+      addressCountry: 'SA',
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 24.7136,
-      "longitude": 46.6753
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 24.7136,
+      longitude: 46.6753,
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Saturday"
+    areaServed: {
+      '@type': 'Country',
+      name: 'Saudi Arabia',
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Saturday',
       ],
-      "opens": "08:00",
-      "closes": "17:00"
+      opens: '08:00',
+      closes: '17:00',
     },
-    "sameAs": [
-      "https://www.instagram.com/alyasmin922/"
-    ]
+    sameAs: ['https://www.instagram.com/alyasmin922/'],
   };
 
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning className="overflow-x-hidden w-full max-w-[100vw]">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <html
+      lang="ar"
+      dir="rtl"
+      suppressHydrationWarning
+      className="overflow-x-hidden w-full max-w-[100vw]"
+    >
+      <body
+        className={`${inter.variable} ${alexandria.variable} bg-slate-50 text-slate-900 antialiased overflow-x-hidden w-full max-w-[100vw]`}
+        suppressHydrationWarning
+      >
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+          }}
         />
-      </head>
-      <body className={`${inter.variable} ${alexandria.variable} bg-slate-50 text-slate-900 antialiased overflow-x-hidden w-full max-w-[100vw]`} suppressHydrationWarning>
         <ClientErrorBoundary>
           <LanguageProvider>
             <AnimatedLinesBackground />
