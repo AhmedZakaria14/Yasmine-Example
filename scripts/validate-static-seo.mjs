@@ -45,7 +45,9 @@ for (const [relativeFile, canonicalPath] of pages) {
   }
 
   const html = readFileSync(filePath, 'utf8');
-  const expectedCanonical = `${origin}${canonicalPath}`;
+  const expectedCanonical = canonicalPath === '/' ? origin : `${origin}${canonicalPath}`;
+  const acceptedCanonicals =
+    canonicalPath === '/' ? new Set([origin, `${origin}/`]) : new Set([expectedCanonical]);
   const canonicalMatch = html.match(/<link rel="canonical" href="([^"]+)"\s*\/?>/i);
   const titleMatch = html.match(/<title>([^<]+)<\/title>/i);
   const descriptionMatch = html.match(
@@ -55,7 +57,7 @@ for (const [relativeFile, canonicalPath] of pages) {
 
   if (!canonicalMatch) {
     errors.push(`Missing canonical in ${relativeFile}`);
-  } else if (canonicalMatch[1] !== expectedCanonical) {
+  } else if (!acceptedCanonicals.has(canonicalMatch[1])) {
     errors.push(
       `Wrong canonical in ${relativeFile}: ${canonicalMatch[1]} (expected ${expectedCanonical})`,
     );
