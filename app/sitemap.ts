@@ -3,8 +3,8 @@ import { serviceSeo } from '@/lib/seo';
 
 export const dynamic = 'force-static';
 
-const baseUrl = 'https://alyasmin-services.com';
-const lastModified = new Date('2026-08-06T00:00:00.000Z');
+const baseUrl = 'https://www.alyasminservices.com';
+const lastModified = new Date('2026-08-08T00:00:00.000Z');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const mainPages: MetadataRoute.Sitemap = [
