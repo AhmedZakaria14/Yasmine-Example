@@ -1,0 +1,28 @@
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Keep one public hostname that matches Google Search Console and canonical URLs.
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^alyasminservices\.com$ [NC]
+  RewriteRule ^ https://www.alyasminservices.com%{REQUEST_URI} [R=301,L,NE]
+
+  # Next static export uses real route directories (about/index.html, services/index.html, ...).
+  # Redirect /about to /about/ so Apache can serve the route index instead of returning 404.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.+)$ /$1/ [R=301,L,NE]
+
+  # Backward-compatible fallback for any legacy route exported as page.html.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
