@@ -2,7 +2,8 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const outDir = join(process.cwd(), 'out');
-const origin = 'https://alyasmin-services.com';
+const origin = 'https://www.alyasminservices.com';
+const obsoleteOrigin = 'https://alyasmin-services.com';
 
 const serviceIds = [
   'maintenance',
@@ -55,6 +56,10 @@ for (const [relativeFile, canonicalPath] of pages) {
   );
   const viewportCount = (html.match(/<meta name="viewport"/gi) || []).length;
 
+  if (html.includes(obsoleteOrigin)) {
+    errors.push(`Obsolete canonical domain found in ${relativeFile}`);
+  }
+
   if (!canonicalMatch) {
     errors.push(`Missing canonical in ${relativeFile}`);
   } else if (!acceptedCanonicals.has(canonicalMatch[1])) {
@@ -91,6 +96,9 @@ if (!existsSync(sitemapPath)) {
   errors.push('Missing sitemap.xml');
 } else {
   const sitemap = readFileSync(sitemapPath, 'utf8');
+  if (sitemap.includes(obsoleteOrigin)) {
+    errors.push('sitemap.xml still contains the obsolete domain');
+  }
   for (const [, canonicalPath] of pages) {
     const expectedUrl = `${origin}${canonicalPath}`;
     if (!sitemap.includes(`<loc>${expectedUrl}</loc>`)) {
@@ -103,6 +111,9 @@ if (!existsSync(robotsPath)) {
   errors.push('Missing robots.txt');
 } else {
   const robots = readFileSync(robotsPath, 'utf8');
+  if (robots.includes(obsoleteOrigin)) {
+    errors.push('robots.txt still contains the obsolete domain');
+  }
   if (!robots.includes(`Sitemap: ${origin}/sitemap.xml`)) {
     errors.push('robots.txt does not reference the canonical sitemap');
   }
@@ -114,4 +125,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log(`Static SEO validation passed for ${pages.length} pages.`);
+console.log(`Static SEO validation passed for ${pages.length} pages on ${origin}.`);
