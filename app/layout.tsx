@@ -21,7 +21,8 @@ const alexandria = Alexandria({
   display: 'swap',
 });
 
-const siteUrl = 'https://alyasmin-services.com';
+// This must match the real public domain verified in Google Search Console.
+const siteUrl = 'https://www.alyasminservices.com';
 const logoUrl =
   'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png';
 
