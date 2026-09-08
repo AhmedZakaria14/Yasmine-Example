@@ -14,7 +14,7 @@ export default function ClientsPage() {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-overlay"
-          style={{ backgroundImage: `url('https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416869/37_%D8%B9%D9%85%D9%84%D8%A7%D8%A1_%D9%85%D8%B5%D8%A7%D9%81%D8%AD%D8%A9_oxfxrt.jpg')` }}
+          style={{ backgroundImage: "url('/images/sections/clients-handshake.jpg')" }}
         />
         {/* Premium Background Effects */}
         <div className="absolute inset-0 bg-grid-pattern-dark opacity-20" />

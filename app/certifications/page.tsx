@@ -12,32 +12,32 @@ export default function CertificationsPage() {
     {
       id: 'cr',
       title: dir === 'rtl' ? 'السجل التجاري' : 'Commercial Register',
-      src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416852/22_%D8%B4%D9%87%D8%A7%D8%AF%D8%A9_%D8%A7%D9%84%D8%B3%D8%AC%D9%84_%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A_b9qqrv.jpg'
+      src: '/images/certificates/commercial-register.jpg'
     },
     {
       id: 'vat',
       title: dir === 'rtl' ? 'شهادة ضريبة القيمة المضافة' : 'VAT Certificate',
-      src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416865/31_%D8%B4%D9%87%D8%A7%D8%AF%D8%A9_%D8%B6%D8%B1%D9%8A%D8%A8%D8%A9_%D8%A7%D9%84%D9%82%D9%8A%D9%85%D8%A9_%D8%A7%D9%84%D9%85%D8%B6%D8%A7%D9%81%D8%A9_VAT_lb6yo1.jpg'
+      src: '/images/certificates/vat.jpg'
     },
     {
       id: 'nitaqat',
       title: dir === 'rtl' ? 'شهادة التوطين (نطاقات)' : 'Saudization Nitaqat Certificate',
-      src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416863/27_%D8%B4%D9%87%D8%A7%D8%AF%D8%A9_%D8%A7%D9%84%D8%AA%D9%88%D8%B7%D9%8A%D9%86_%D9%86%D8%B7%D8%A7%D9%82%D8%A7%D8%AA_pex5wr.jpg'
+      src: '/images/certificates/nitaqat.jpg'
     },
     {
       id: 'wage',
       title: dir === 'rtl' ? 'شهادة حماية الأجور' : 'Wage Protection Certificate',
-      src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416864/28_%D8%B4%D9%87%D8%A7%D8%AF%D8%A9_%D8%AD%D9%85%D8%A7%D9%8A%D8%A9_%D8%A7%D9%84%D8%A7%D8%AC%D9%88%D8%B1_k7asck.jpg'
+      src: '/images/certificates/wage-protection.jpg'
     },
     {
       id: 'address',
       title: dir === 'rtl' ? 'شهادة إثبات العنوان الوطني' : 'National Address Certificate',
-      src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416865/34_%D8%B4%D9%87%D8%A7%D8%AF%D8%A9_%D8%A7%D8%AB%D8%A8%D8%A7%D8%AA_%D8%A7%D9%84%D8%B9%D9%86%D9%88%D8%A7%D9%86_%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A_rbnagn.png'
+      src: '/images/certificates/national-address.png'
     },
     {
       id: 'cr_qr',
       title: dir === 'rtl' ? 'السجل التجاري (QR)' : 'Commercial Register (QR)',
-      src: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416851/24_%D8%B4%D9%87%D8%A7%D8%AF%D8%A9_%D8%A7%D9%84%D8%B3%D8%AC%D9%84_%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A_QR_ack8da.png'
+      src: '/images/certificates/commercial-register-qr.png'
     }
   ];
 
@@ -63,22 +63,20 @@ export default function CertificationsPage() {
           <div className="mt-12 flex flex-wrap justify-center items-center gap-6 md:gap-10">
             <div className="bg-white p-4 rounded-2xl shadow-xl flex items-center justify-center w-48 h-28 hover:-translate-y-1 transition-transform duration-300 border border-white/20">
               <Image
-                src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782542478/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%B1%D8%A4%D9%8A%D8%A9_%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9_2030_-_Saudi_vision_2030_Logo_SVG_1_u27dds.png"
+                src="/images/brand/vision-2030.png"
                 alt="Saudi Vision 2030"
                 width={140}
                 height={80}
                 className="object-contain w-full h-full"
-                referrerPolicy="no-referrer"
               />
             </div>
             <div className="bg-white p-4 rounded-2xl shadow-xl flex items-center justify-center w-48 h-28 hover:-translate-y-1 transition-transform duration-300 border border-white/20">
               <Image
-                src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416851/23_%D8%B4%D8%B9%D8%A7%D8%B1_%D9%88%D8%B2%D8%A7%D8%B1%D8%A9_%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D8%A9_bdblxe.jpg"
+                src="/images/certificates/ministry-of-commerce.jpg"
                 alt="Ministry of Commerce"
                 width={140}
                 height={80}
                 className="object-contain w-full h-full mix-blend-multiply"
-                referrerPolicy="no-referrer"
               />
             </div>
           </div>
@@ -108,7 +106,6 @@ export default function CertificationsPage() {
                     alt={cert.title}
                     fill
                     className="object-contain p-2 md:p-4 group-hover:scale-[1.02] transition-transform duration-500"
-                    referrerPolicy="no-referrer"
                   />
                 </div>
                 <h3 className="text-center font-bold text-lg text-slate-800">{cert.title}</h3>

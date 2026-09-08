@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
     <div className="pt-24 min-h-screen bg-slate-50" dir={dir}>
       {/* Header */}
       <div className="bg-[#00509E] text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782298285/cleaning_1_tqj8l6.jpg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[url('/images/services/floor-cleaning.jpg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#00509E] to-[#00509E]/80" />
         
         <div className="container mx-auto px-4 relative z-10 text-center">

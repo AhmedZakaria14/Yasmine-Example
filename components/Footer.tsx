@@ -60,11 +60,10 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 bg-white rounded-2xl shadow-lg group-hover:scale-105 transition-transform overflow-hidden">
                 <Image
-                  src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png"
+                  src="/images/brand/al-yasmin-logo.png"
                   alt="Al Yasmin Logo"
                   fill
                   className="object-contain p-2 md:p-3"
-                  referrerPolicy="no-referrer"
                 />
               </div>
               <span className="font-bold text-xl md:text-2xl text-white tracking-tight">{lang === 'ar' ? 'شركة خدمات الياسمين' : 'AL-YASMIN SERVICES CO.'}</span>
@@ -81,12 +80,11 @@ export function Footer() {
             <div className="pt-4">
               <div className="bg-white p-3 rounded-2xl shadow-lg flex items-center justify-center w-32 h-20 md:w-40 md:h-24 hover:-translate-y-1 transition-transform duration-300 border border-white/10">
                 <Image
-                  src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782542478/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%B1%D8%A4%D9%8A%D8%A9_%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9_2030_-_Saudi_vision_2030_Logo_SVG_1_u27dds.png"
+                  src="/images/brand/vision-2030.png"
                   alt="Saudi Vision 2030"
                   width={120}
                   height={60}
                   className="object-contain w-full h-full"
-                  referrerPolicy="no-referrer"
                 />
               </div>
             </div>

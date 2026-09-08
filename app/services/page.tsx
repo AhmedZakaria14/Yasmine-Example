@@ -14,7 +14,7 @@ export default function ServicesPage() {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-overlay"
-          style={{ backgroundImage: `url('https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416845/08_%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA_%D9%85%D8%A8%D9%86%D9%89_obxprc.jpg')` }}
+          style={{ backgroundImage: "url('/images/sections/services-building.jpg')" }}
         />
         {/* Premium Background Effects */}
         <div className="absolute inset-0 bg-grid-pattern-dark opacity-20" />

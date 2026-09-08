@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 
-const DEFAULT_IMAGE =
-  'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png';
+const DEFAULT_IMAGE = '/images/brand/al-yasmin-logo.png';
 
 export type ServiceSeoEntry = {
   title: string;

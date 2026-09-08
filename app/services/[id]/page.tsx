@@ -12,32 +12,32 @@ import { Wrench, Droplets, Coffee, Bug, Leaf, Building, Camera, Fan, Truck, Hamm
 const servicesData = {
   maintenance: {
     icon: Wrench,
-    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416845/09_%D8%B5%D9%8A%D8%A7%D9%86%D8%A9_%D9%85%D8%A8%D9%86%D9%89_owbznd.jpg',
+    image: '/images/services/maintenance-systems.jpg',
     related: ['cleaning', 'landscaping'],
   },
   cleaning: {
     icon: Droplets,
-    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416847/11_%D9%86%D8%B8%D8%A7%D9%81%D8%A9_%D8%A7%D8%B1%D8%B6%D9%8A%D8%A7%D8%AA_mgp4du.jpg',
+    image: '/images/services/carpet-cleaning.jpg',
     related: ['maintenance', 'pest'],
   },
   hospitality: {
     icon: Coffee,
-    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416848/15_%D8%B6%D9%8A%D8%A7%D9%81%D8%A9_%D9%86%D8%A7%D8%AF%D9%84_ytxbnx.jpg',
+    image: '/images/services/hospitality-events.jpg',
     related: ['cleaning', 'maintenance'],
   },
   pest: {
     icon: Bug,
-    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416849/17_%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9_%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA1_ohplqy.jpg',
+    image: '/images/services/pest-control-3.jpg',
     related: ['cleaning', 'landscaping'],
   },
   landscaping: {
     icon: Leaf,
-    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416850/20_%D8%AD%D8%AF%D8%A7%D8%A6%D9%821_wnhm0f.jpg',
+    image: '/images/services/landscaping-2.jpg',
     related: ['maintenance', 'pest'],
   },
   facilities_management: {
     icon: Building,
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop',
+    image: '/images/sections/services-building.jpg',
     related: ['maintenance', 'cleaning'],
   },
   security_cameras: {
@@ -47,12 +47,12 @@ const servicesData = {
   },
   water_tanks: {
     icon: Droplets,
-    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783487543/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87-%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6_o3utul.jpg',
+    image: '/images/services/pool-cleaning.jpg',
     related: ['cleaning', 'maintenance'],
   },
   ac_maintenance: {
     icon: Fan,
-    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783487543/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A7%D9%84%D9%85%D9%83%D9%8A%D9%81-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%B9%D9%8A_j63lpi.webp',
+    image: '/images/services/maintenance-systems.jpg',
     related: ['maintenance'],
   },
   furniture_moving: {
@@ -67,12 +67,12 @@ const servicesData = {
   },
   leak_detection: {
     icon: ShieldAlert,
-    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783487544/%D8%B4%D8%B1%D9%83%D8%A9-%D9%83%D8%B4%D9%81-%D8%AA%D8%B3%D8%B1%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87_vxc6wm.jpg',
+    image: '/images/services/pressure-cleaning.jpg',
     related: ['maintenance'],
   },
   plumbing_electrical: {
     icon: Zap,
-    image: 'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1783487550/IMG_20231203_121310_nkmgvt.jpg',
+    image: '/images/services/maintenance-building.jpg',
     related: ['maintenance'],
   },
 };

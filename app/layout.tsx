@@ -23,8 +23,7 @@ const alexandria = Alexandria({
 
 // This must match the real public domain verified in Google Search Console.
 const siteUrl = 'https://www.alyasminservices.com';
-const logoUrl =
-  'https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png';
+const logoUrl = `${siteUrl}/images/brand/al-yasmin-logo.png`;
 
 export const viewport: Viewport = {
   width: 'device-width',

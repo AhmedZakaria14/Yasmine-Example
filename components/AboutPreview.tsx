@@ -30,11 +30,10 @@ export function AboutPreview() {
           >
             <div className="relative h-[600px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100 group">
               <Image
-                src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416845/07_%D8%A7%D9%84%D8%B1%D8%A4%D9%8A%D8%A9_%D9%88%D8%A7%D9%84%D8%B1%D8%B3%D8%A7%D9%84%D8%A9_bmztan.jpg"
+                src="/images/sections/about-vision.jpg"
                 alt="Al Yasmin Vision and Mission"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#00509E]/90 via-[#00509E]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
               

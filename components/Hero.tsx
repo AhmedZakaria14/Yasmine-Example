@@ -143,12 +143,11 @@ export function Hero() {
             <div className="relative h-full w-full rounded-[3rem] overflow-hidden shadow-2xl border border-white/50 bg-white p-2">
               <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden">
                 <Image
-                  src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782416847/01_%D8%BA%D9%84%D8%A7%D9%81_%D8%AE%D9%84%D9%81%D9%8A%D8%A9_%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6_nxdd3s.jpg"
+                  src="/images/sections/hero-riyadh.jpg"
                   alt="Al Yasmin Services Riyadh Background"
                   fill
                   className="object-cover"
                   priority
-                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#00509E]/80 via-transparent to-transparent" />
                 

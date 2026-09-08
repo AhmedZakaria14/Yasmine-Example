@@ -45,11 +45,10 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-1.5 sm:gap-2 md:gap-3 group shrink-0 max-w-[65%] sm:max-w-none">
           <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 group-hover:scale-105 transition-transform shrink-0">
             <Image
-              src="https://res.cloudinary.com/dxvjqrb9l/image/upload/v1782541880/al_yasmin_logo_me3goh.png"
+              src="/images/brand/al-yasmin-logo.png"
               alt="Al Yasmin Logo"
               fill
               className="object-contain"
-              referrerPolicy="no-referrer"
               priority
             />
           </div>
