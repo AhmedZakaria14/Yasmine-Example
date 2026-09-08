@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://www.alyasminservices.com
+Sitemap: https://www.alyasminservices.com/sitemap.xml
