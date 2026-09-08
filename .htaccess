@@ -9,7 +9,7 @@ ErrorDocument 404 /404.html
   RewriteCond %{HTTP_HOST} ^alyasminservices\.com$ [NC]
   RewriteRule ^ https://www.alyasminservices.com%{REQUEST_URI} [R=301,L,NE]
 
-  # Next static export uses real route directories (about/index.html, services/index.html, ...).
+  # Static export uses real route directories (about/index.html, services/index.html, ...).
   # Redirect /about to /about/ so Apache can serve the route index instead of returning 404.
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_URI} !/$
@@ -25,4 +25,24 @@ ErrorDocument 404 /404.html
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Hostinger/Git deployment: always revalidate HTML so a new push appears immediately.
+  <FilesMatch "\.html?$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Logos and favicons are frequently replaced using the same filename.
+  # Prevent browser/CDN cache from keeping an older brand asset after deployment.
+  <FilesMatch "^(al-yasmin-logo\.png|favicon\.(ico|png|svg)|apple-touch-icon\.png)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Hashed static assets are immutable and safe to cache aggressively.
+  <FilesMatch "\.(css|js|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
 </IfModule>
