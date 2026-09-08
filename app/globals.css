@@ -1,4 +1,11 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+
+/* Only scan source files. The generated HTML export also lives at the repository
+   root for Hostinger and must not be parsed again as Tailwind source. */
+@source "../app";
+@source "../components";
+@source "../hooks";
+@source "../lib";
 
 @theme {
   --font-inter: var(--font-inter);
